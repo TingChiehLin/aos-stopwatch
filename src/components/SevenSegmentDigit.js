@@ -1,3 +1,5 @@
+import {useSelector} from "react-redux";
+
 function charToSSD(character) {
     const segmentArrays = {
         // Numbers
@@ -32,8 +34,9 @@ function charToSSD(character) {
 
 const SevenSegmentDigit = ({character}) => {
 
+    const color = useSelector(state => state.color.value)
     const svg = {
-        fill: "#AE75D2"
+        fill: `${color}`
     }
 
     const displayStates = charToSSD(character);
@@ -83,7 +86,8 @@ const SevenSegmentDigit = ({character}) => {
             /> : null
     ];
     return (
-        <svg style={svg} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 49.3 92.7' preserveAspectRatio='xMidYMid meet'>
+        <svg style={svg} className={``} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 49.3 92.7'
+             preserveAspectRatio='xMidYMid meet'>
             {segments}
         </svg>
     );

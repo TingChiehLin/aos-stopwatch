@@ -1,5 +1,5 @@
 import {useDispatch,useSelector} from "react-redux";
-import {timerActions} from "../store";
+import {timerActions} from "../store/timer-slice";
 
 const Button = ({text}) => {
     const dispatch = useDispatch()

@@ -1,19 +1,26 @@
-import React from "react";
-import {useSelector} from "react-redux";
+import React, {useState, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import SevenSegmentDisplay from "../components/SevenSegmentDisplay";
+import {timerActions} from "../store/timer-slice";
 
 const Timer = () => {
+
+    const dispatch = useDispatch()
     const isTimeOn = useSelector(state => state.timer.isTimeOn)
     const isReset = useSelector(state => state.timer.isReset)
-    const [time, setTime] = React.useState(0);
+    const [time, setTime] = useState(0);
 
-    React.useEffect(() => {
+    let hours = ("0" + Math.floor((time / 60000) % 60)).slice(-2)
+    let minutes = ("0" + Math.floor((time / 1000) % 60)).slice(-2)
+    let seconds = ("0" + ((time / 10) % 100)).slice(-2)
+
+    useEffect(() => {
         let interval = null;
 
         if (isTimeOn) {
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime + 10);
-            }, 50);
+            }, 1);
         } else if (!isTimeOn) {
             clearInterval(interval);
         }
@@ -23,9 +30,14 @@ const Timer = () => {
         return () => clearInterval(interval);
     }, [isTimeOn, isReset]);
 
-    let hours = ("0" + Math.floor((time / 60000) % 60)).slice(-2)
-    let minutes = ("0" + Math.floor((time / 1000) % 60)).slice(-2)
-    let seconds = ("0" + ((time / 10) % 100)).slice(-2)
+    const lapTimerHandler = () => {
+        const newRecord = {
+            hours,
+            minutes,
+            seconds
+        }
+        dispatch(timerActions.lapTimerHandler(newRecord))
+    }
 
     return (
         <>
@@ -35,6 +47,11 @@ const Timer = () => {
                 <SevenSegmentDisplay digits={[minutes.charAt(0), minutes.charAt(1)]}/>
                 :
                 <SevenSegmentDisplay digits={[seconds.charAt(0), seconds.charAt(1)]}/>
+                <button className={"py-4 px-10 ml-20 text-base bg-cyan-300 font-bold rounded-full"}
+                        onClick={lapTimerHandler}
+                >
+                    Lap
+                </button>
             </div>
         </>
     )
