@@ -41,13 +41,15 @@ const Timer = () => {
 
     return (
         <>
-            <div className={"flex justify-center items-center gap-4 text-6xl"}>
-                <SevenSegmentDisplay digits={[hours.charAt(0), hours.charAt(1)]}/>
-                :
-                <SevenSegmentDisplay digits={[minutes.charAt(0), minutes.charAt(1)]}/>
-                :
-                <SevenSegmentDisplay digits={[seconds.charAt(0), seconds.charAt(1)]}/>
-                <button className={"py-4 px-10 ml-20 text-base bg-cyan-300 font-bold rounded-full"}
+            <div className={"my-12"}>
+                <div className={"flex justify-center items-center gap-4 text-6xl"}>
+                    <SevenSegmentDisplay digits={[hours.charAt(0), hours.charAt(1)]}/>
+                    :
+                    <SevenSegmentDisplay digits={[minutes.charAt(0), minutes.charAt(1)]}/>
+                    :
+                    <SevenSegmentDisplay digits={[seconds.charAt(0), seconds.charAt(1)]}/>
+                </div>
+                <button className={"block mx-auto mt-12 py-4 px-10 text-base bg-cyan-300 font-bold rounded-full"}
                         onClick={lapTimerHandler}
                 >
                     Lap

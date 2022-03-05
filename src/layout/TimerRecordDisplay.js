@@ -6,7 +6,9 @@ const TimerRecordDisplay = () => {
     const timeRecords = useSelector(state => state.timer.timeRecords)
 
     return (
-        <div className={"w-[64rem] h-[20rem] p-12 bg-gray-100 shadow-md rounded-md flex justify-center flex-col flex-wrap"}>
+        <div className={"h-[20rem] mb-12 p-8 bg-gray-100 shadow-md " +
+                        "rounded-md flex justify-center flex-col flex-wrap"}
+        >
             {
                 timeRecords.map((e, index) =>
                     <TimeDisplay
