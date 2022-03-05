@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import SevenSegmentDisplay from "../components/SevenSegmentDisplay";
+import SevenSegmentDisplay from "./SevenSegmentDisplay";
 import {timerActions} from "../store/timer-slice";
 
 const Timer = () => {
@@ -20,7 +20,7 @@ const Timer = () => {
         if (isTimeOn) {
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime + 10);
-            }, 1);
+            }, 10);
         } else if (!isTimeOn) {
             clearInterval(interval);
         }

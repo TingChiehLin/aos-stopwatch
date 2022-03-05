@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {colorActions} from "../store/color-slice";
 
-const ColorHandler = ({color}) => {
+const ColorHandler = ({color, className}) => {
 
     const dispatch = useDispatch()
     const changeColorHandler = () => {
@@ -9,7 +9,7 @@ const ColorHandler = ({color}) => {
     }
 
     return (
-        <button className={`p-12 bg-${color}-300 rounded-full`}
+        <button className={className}
                 onClick={changeColorHandler}
         >
         </button>

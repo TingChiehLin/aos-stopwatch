@@ -18,9 +18,9 @@ const App = () => {
             <div className={"my-12 mx-auto"}>
                 <div className={"text-2xl text-center"}>Change Color Scheme</div>
                 <div className={"mt-12 flex justify-center items-center gap-4"}>
-                    <ColorHandler color={"blue"}/>
-                    <ColorHandler color={"red"}/>
-                    <ColorHandler color={"green"}/>
+                    <ColorHandler color={"blue"} className={"p-12 bg-blue-300 rounded-full"}/>
+                    <ColorHandler color={"red"} className={"p-12 bg-red-300 rounded-full"}/>
+                    <ColorHandler color={"green"} className={"p-12 bg-green-300 rounded-full"}/>
                 </div>
             </div>
             <TimerRecordDisplay/>

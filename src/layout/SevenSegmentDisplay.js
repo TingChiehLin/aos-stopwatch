@@ -1,4 +1,4 @@
-import SevenSegmentDigit from "./SevenSegmentDigit"
+import SevenSegmentDigit from "../components/SevenSegmentDigit"
 
 const SevenSegmentDisplay = ({digits}) => {
 

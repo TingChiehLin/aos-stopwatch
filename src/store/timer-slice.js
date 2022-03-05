@@ -20,6 +20,7 @@ const timerSlice = createSlice({
         },
         resetTimer(state) {
             state.isReset = true
+            state.timeRecords = []
         },
         lapTimerHandler(state, action) {
             state.timeRecords.push(action.payload)
